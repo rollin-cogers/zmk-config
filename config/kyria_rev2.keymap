@@ -13,9 +13,25 @@
 
 		default_layer {
 // ---------------------------------------------------------------------------------------------------------------------------------
-// |  ESC  |  Q  |  W  |  E   |  R   |  T   |                                          |  Y   |  U    |  I    |  O   |   P   |   \  |
-// |  TAB  |  A  |  S  |  D   |  F   |  G   |                                          |  H   |  J    |  K    |  L   |   ;   |   '  |
-// | SHIFT |  Z  |  X  |  C   |  V   |  B   | L SHIFT | L SHIFT |  | L SHIFT | L SHIFT |  N   |  M    |  ,    |  .   |   /   | CTRL |
+// |  ESC  |  Q  |  W  |  F   |  P   |  G   |                                          |  J   |  L    |  U    |  Y   |   ;   |   \     |
+// |  TAB  |  A  |  R  |  S   |  T   |  D   |                                          |  H   |  N    |  E    |  I   |   O   |   Home  |
+// | SHIFT |  Z  |  X  |  C   |  V   |  B   | L SHIFT | ESC     |  | R SHIFT | R SHIFT |  K   |  M    |  ,    |  .   |   /   | End	   |
+//                     | GUI  | DEL  | TAB  |  SPACE  |   Ctrl  |  |   RET   |  SPACE  | BSPC  | RGUI  | R-ALT |
+			bindings = <
+	&kp ESC   &kp Q &kp W &kp F &kp P &kp G                                                &kp J &kp L  &kp U     &kp Y   &kp SEMI    &kp BSLH
+	&kp TAB   &kp A &kp R &kp S &kp T &kp D                                                &kp H &kp N  &kp E     &kp I   &kp O &kp HOME
+	&kp LSHFT &kp Z &kp X &kp C &kp V &kp B &kp LSHFT &kp ESC        &kp RSHFT &kp RSHFT &kp K &kp M  &kp COMMA &kp DOT &kp FSLH &kp END
+	                 &kp LGUI &kp DEL &kp TAB &kp SPACE &kp LCTRL        &kp RET  &kp SPACE  &kp BSPC &kp RGUI &kp RALT
+			>;
+
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+		};
+
+		symbol_layer {
+// ---------------------------------------------------------------------------------------------------------------------------------
+// |  ESC  |  !  |  @  |  #   |  $   |  %   |                                          |  ^   |  &    |  *    |  _   |   ;   |   \  |
+// |  TAB  |  `  |  ~  |  {   |  (   |  [   |                                          |  :   |  J    |  K    |  L   |   ;   |   '  |
+// | SHIFT |  <  |  >  |  }   |  )   |  ]   | L SHIFT | L SHIFT |  | L SHIFT | L SHIFT |  |   |  -    |  =    |  +   |   /   | CTRL |
 //                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
 			bindings = <
 	&kp ESC   &kp Q &kp W &kp E &kp R &kp T                                                &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSLH
