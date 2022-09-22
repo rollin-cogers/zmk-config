@@ -18,14 +18,14 @@
 		default_layer {
 // ---------------------------------------------------------------------------------------------------------------------------------
 // |  ESC  |  Q  |  W  |  F   |  P   |  G   |                                          |  J   |  L    |  U    |  Y   |   ;   |   \     |
-// |  TAB  |  A  |  R  |  S   |  T   |  D   |                                          |  H   |  N    |  E    |  I   |   O   |   Home  |
+// |  LALT  |  A  |  R  |  S   |  T   |  D   |                                          |  H   |  N    |  E    |  I   |   O   |   Home  |
 // | SHIFT |  Z  |  X  |  C   |  V   |  B   | L SHIFT | NAV     |  | R SHIFT | R SHIFT |  K   |  M    |  ,    |  .   |   /   | End	   |
-//                     | GUI  | DEL  | TAB  |  SPACE  |   Ctrl  |  |   RET   |  SPACE  | BSPC  | RGUI  | R-ALT |
+//                     | C_PP  | GUI  | TAB  |  SPACE  |   Ctrl  |  |   RET   |  SPACE  | BSPC  | RGUI  | R-ALT |
 			bindings = <
 	&kp ESC   &kp Q &kp W &kp F &kp P &kp G                                                &kp J &kp L  &kp U     &kp Y   &kp SEMI    &kp BSLH
-	&kp TAB   &kp A &kp R &kp S &kp T &kp D                                                &kp H &kp N  &kp E     &kp I   &kp O &kp HOME
+	&kp LALT   &kp A &kp R &kp S &kp T &kp D                                                &kp H &kp N  &kp E     &kp I   &kp O &kp HOME
 	&kp LSHFT &kp Z &kp X &kp C &kp V &kp B &kp LSHFT &tog NAV_LAYER        &kp RSHFT &kp RSHFT &kp K &kp M  &kp COMMA &kp DOT &kp FSLH &kp END
-	                 &kp LGUI &kp DEL &lt SYMBOL_LAYER TAB &kp SPACE &kp LCTRL        &kp RET  &kp SPACE  &kp BSPC &kp RGUI &kp RALT
+	                 &kp C_PP &kp LGUI &lt SYMBOL_LAYER TAB &kp SPACE &kp LCTRL        &kp RET  &kp SPACE  &kp BSPC &kp RGUI &kp RALT
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -36,12 +36,12 @@
 // |  ESC  |  !  |  @  |  #   |  $   |  %   |                                          |  ^   |  &    |  *    |  _   |   ;   |   \  |
 // |  TAB  |  `  |  ~  |  {   |  (   |  [   |                                          |  :   |  J    |  K    |  L   |   :   |   '  |
 // | SHIFT |  <  |  >  |  }   |  )   |  ]   | L SHIFT | NAV     |  | L SHIFT | L SHIFT |  |   |  -    |  =    |  +   |   /   | CTRL |
-//                     | GUI  | DEL  | RET  |  SPACE  |   Ctrl  |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
+//                     | C_PP  | GUI | RET  |  SPACE  |   Ctrl  |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
 			bindings = <
 	&kp ESC   &kp EXCL &kp AT &kp HASH &kp DLLR &kp PERCENT                                                &kp CARET &kp AMPS  &kp ASTRK     &kp UNDER   &kp SEMI    &kp BSLH
 	&kp TAB   &kp A &kp S &kp D &kp F &kp G                                                &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
 	&kp LSHFT &kp Z &kp X &kp C &kp V &kp B &kp LSHFT &tog NAV_LAYER        &kp LSHFT &kp LSHFT &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RCTRL
-	                 &kp LGUI &kp DEL &kp TAB &kp SPACE &kp LCTRL        &kp RET  &kp SPACE  &kp TAB &kp BSPC &kp RALT
+	                 &kp C_PP &kp LGUI &kp TAB &kp SPACE &kp LCTRL        &kp RET  &kp SPACE  &kp TAB &kp BSPC &kp RALT
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -52,12 +52,12 @@
 // |  ESC  |  !  |  @  |  #   |  $   |  %   |                                          |  ^   |  &    |  *    |  _   |   ;   |   \  |
 // |  TAB  |  `  |  ~  |  {   |  (   |  [   |                                          |  :   |  LEFT |  UP   |RIGHT |   ;   | Home |
 // | SHIFT |  <  |  >  |  }   |  )   |  ]   | L SHIFT | NAV     |  | L SHIFT | L SHIFT |  |   |  -    |  DOWN |  +   |   /   | End  |
-//                     | GUI  | DEL  | RET  |  SPACE  |   Ctrl  |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
+//                     | C_PP  | GUI  | RET  |  SPACE  |   Ctrl  |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
 			bindings = <
 	&kp ESC   &kp Q &kp W &kp E &kp R &kp T                                                &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSLH
 	&kp TAB   &kp A &kp S &kp D &kp F &kp G                                                &kp H &kp LEFT  &kp UP     &kp RIGHT   &kp SEMI &kp HOME
 	&kp LSHFT &kp Z &kp X &kp C &kp V &kp B &kp LSHFT &tog NAV_LAYER        &kp LSHFT &kp LSHFT &kp N &kp M  &kp DOWN &kp DOT &kp FSLH &kp END
-	                 &kp LGUI &kp DEL &kp TAB &kp SPACE &kp LCTRL        &kp RET  &kp SPACE  &kp TAB &kp BSPC &kp RALT
+	                 &kp C_PP &kp LGUI &kp TAB &kp SPACE &kp LCTRL        &kp RET  &kp SPACE  &kp TAB &kp BSPC &kp RALT
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
