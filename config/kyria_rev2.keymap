@@ -20,6 +20,13 @@
                 tapping-term-ms = <200>;
                 bindings = <&kp LSHFT>, <&kp CAPS>;
 	    };
+	    td1: tap_dance_1 {
+	        compatible = "zmk,behavior-tap-dance";
+                label = "TAP_DANCE_1";
+                #binding-cells = <0>;
+                tapping-term-ms = <200>;
+                bindings = <&kp ESC>, <&out OUT_TOG>;
+	    };
 	};
 	keymap {
 		compatible = "zmk,keymap";
@@ -31,7 +38,7 @@
 // | SHIFT |  Z  |  X  |  C   |  V   |  B   | L SHIFT | NAV     |  | R SHIFT | R SHIFT |  K   |  M    |  ,    |  .   |   /   | End	   |
 //                     | C_PP  | GUI  | TAB  |  SPACE  |   Ctrl  |  |   RET   |  SPACE  | BSPC  | RGUI  | R-ALT |
 			bindings = <
-	&kp ESC   &kp Q &kp W &kp F &kp P &kp G                                                &kp J &kp L  &kp U     &kp Y   &kp SEMI    &kp BSLH
+	&td1   &kp Q &kp W &kp F &kp P &kp G                                                &kp J &kp L  &kp U     &kp Y   &kp SEMI    &kp BSLH
 	&kp LALT   &kp A &kp R &kp S &kp T &kp D                                                &kp H &kp N  &kp E     &kp I   &kp O &kp HOME
 	&kp LSHFT &kp Z &kp X &kp C &kp V &kp B &td0 &tog NAV_LAYER        &kp RSHFT &kp RSHFT &kp K &kp M  &kp COMMA &kp DOT &kp FSLH &kp END
 	                 &kp C_PP &kp LGUI &lt SYMBOL_LAYER TAB &kp SPACE &kp LCTRL        &kp RET  &kp SPACE  &kp BSPC &kp RGUI &kp RALT
