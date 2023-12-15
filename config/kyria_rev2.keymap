@@ -5,9 +5,8 @@
  */
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
 
 #define DEFAULT 0
 #define SYMBOL_LAYER 1
@@ -15,86 +14,93 @@
 #define GAME_LAYER 3
 
 / {
-	behaviors {
-	    td0: tap_dace_0 {
-	        compatible = "zmk,behavior-tap-dance";
-                label = "TAP_DANCE_0";
-                #binding-cells = <0>;
-                tapping-term-ms = <150>;
-                bindings = <&kp LSHFT>, <&kp CAPS>;
-	    };
-	    td1: tap_dance_1 {
-	        compatible = "zmk,behavior-tap-dance";
-                label = "TAP_DANCE_1";
-                #binding-cells = <0>;
-                tapping-term-ms = <150>;
-                bindings = <&kp ESC>, <&out OUT_TOG>, <&tog GAME_LAYER>;
-	    };
-	};
-	keymap {
-		compatible = "zmk,keymap";
+    behaviors {
+        td0: tap_dace_0 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_0";
+            #binding-cells = <0>;
+            tapping-term-ms = <150>;
+            bindings = <&kp LSHFT>, <&kp CAPS>;
+        };
 
-		default_layer {
-// ---------------------------------------------------------------------------------------------------------------------------------
-// |  ESC  |  Q  |  W  |  F   |  P   |  G   |                                          |  J   |  L    |  U    |  Y   |   ;   |   \     |
-// |  LALT  |  A  |  R  |  S   |  T   |  D   |                                          |  H   |  N    |  E    |  I   |   O   |   Home  |
-// | SHIFT |  Z  |  X  |  C   |  V   |  B   | Ctrl | NAV     |  | R SHIFT | R SHIFT |  K   |  M    |  ,    |  .   |   /   | End	   |
-//                     | C_PP  | GUI  | TAB  |  SPACE  |   L SHIFT  |  |   RET   |  SPACE  | BSPC  | RALT  | BT_NXT |
-			bindings = <
-	&td1   &kp Q &kp W &kp F &kp P &kp G                                                &kp J &kp L  &kp U     &kp Y   &kp SEMI    &kp BSLH
-	&kp LALT   &kp A &kp R &kp S &kp T &kp D                                                &kp H &kp N  &kp E     &kp I   &kp O &kp HOME
-	&kp LSHFT &kp Z &kp X &kp C &kp V &kp B &kp LCTRL &tog NAV_LAYER        &kp RSHFT &kp RSHFT &kp K &kp M  &kp COMMA &kp DOT &kp FSLH &kp END
-	                 &kp C_PP &kp LGUI &lt SYMBOL_LAYER TAB &kp SPACE &td0        &kp RET  &kp SPACE  &kp BSPC &kp RALT &bt BT_NXT
-			>;
+        td1: tap_dance_1 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_1";
+            #binding-cells = <0>;
+            tapping-term-ms = <150>;
+            bindings = <&kp ESC>, <&tog GAME_LAYER>;
+        };
+    };
 
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp RIGHT LEFT>;
-		};
+    keymap {
+        compatible = "zmk,keymap";
 
-		SYMBOL_LAYER {
-// ---------------------------------------------------------------------------------------------------------------------------------
-// |  ESC  |  !  |  @  |  #   |  $   |  %   |                                          |  ^   |  &    |  *    |  -   |   ;   |   \  |
-// |  TAB  |  `  |  ~  |  {   |  (   |  [   |                                          |  :   |  +    |  =    |  _   |   :   |   '  |
-// | SHIFT |  <  |  >  |  }   |  )   |  ]   | Ctrl    | NAV     |  | R SHIFT | R SHIFT |  K   |  M    |  ,    |  .   |   ?   | "  |
-//                     | C_PP  | GUI | TAB  |  SPACE  |   LSHIFT  |  |   RET   |  SPACE  | BSPC  | RALT  | BT_NXT |
-			bindings = <
-	&td1   &kp EXCL &kp AT &kp HASH &kp DLLR &kp PERCENT                                                &kp CARET &kp AMPS  &kp ASTRK     &kp MINUS   &kp SEMI    &kp BSLH
-	&kp TAB   &kp GRAVE &kp TILDE &kp LBRC &kp LPAR &kp LBKT                                                &kp COLON &kp PLUS  &kp EQUAL     &kp UNDER   &kp COLON &kp SQT
-	&kp LSHFT &kp LT &kp GT &kp RBRC &kp RPAR &kp RBKT &kp LCTRL &tog NAV_LAYER        &kp RSHFT &kp RSHFT &kp K &kp M  &kp COMMA &kp DOT &kp QMARK &kp DQT
-	                 &kp C_PP &kp LGUI &lt SYMBOL_LAYER TAB &kp SPACE &td0        &kp RET  &kp SPACE  &kp BSPC &kp RALT &bt BT_NXT
-			>;
+        default_layer {
+            // ---------------------------------------------------------------------------------------------------------------------------------
+            // |  ESC  |  Q  |  W  |  F   |  P   |  G   |                                          |  J   |  L    |  U    |  Y   |   ;   |   \     |
+            // |  LALT  |  A  |  R  |  S   |  T   |  D   |                                          |  H   |  N    |  E    |  I   |   O   |   Home  |
+            // | SHIFT |  Z  |  X  |  C   |  V   |  B   | Ctrl | NAV     |  | R SHIFT | R SHIFT |  K   |  M    |  ,    |  .   |   /   | End	   |
+            //                     | C_PP  | GUI  | TAB  |  SPACE  |   L SHIFT  |  |   RET   |  SPACE  | BSPC  | RALT  | BT_NXT |
 
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp RIGHT LEFT>;
-		};
-		
-		NAV_LAYER {
-// ---------------------------------------------------------------------------------------------------------------------------------
-// |  ESC  |  1  |  2  |  3   |  4   |  5   |                                          |  6   |  7    |  8    |  9   |   0   |   \  |
-// |  TAB  |  `  |  ~  |  {   |  (   |  [   |                                          |  :   |  LEFT |  UP   |RIGHT |   ;   | Home |
-// | SHIFT |  <  |  >  |  }   |  )   |  ]   | L SHIFT | NAV     |  | L SHIFT | L SHIFT |  |   |  -    |  DOWN |  +   |   /   | End  |
-//                     | C_PP  | GUI  | RET  |  SPACE  |   Ctrl  |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
-			bindings = <
-	&td1   &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                                                &kp N6 &kp N7  &kp N8     &kp N9   &kp N0    &kp BSLH
-	&kp TAB   &kp A &kp S &kp D &kp F &kp G                                                &kp COLON &kp LEFT  &kp UP     &kp RIGHT   &kp SEMI &kp HOME
-	&kp LSHFT &kp Z &kp X &kp C &kp V &kp B &kp LCTRL &tog NAV_LAYER        &kp LSHFT &kp LSHFT &kp PIPE2 &kp MINUS  &kp DOWN &kp PLUS &kp FSLH &kp END
-	                 &kp C_PP &kp LGUI &lt SYMBOL_LAYER TAB &kp SPACE &td0        &kp RET  &kp SPACE  &kp BSPC &kp RALT &bt BT_NXT
-			>;
+            bindings = <
+&td1       &kp Q  &kp W  &kp F     &kp P     &kp G                                                         &kp J     &kp L     &kp U       &kp Y    &kp SEMI  &kp BSLH
+&kp LALT   &kp A  &kp R  &kp S     &kp T     &kp D                                                         &kp H     &kp N     &kp E       &kp I    &kp O     &kp HOME
+&kp LSHFT  &kp Z  &kp X  &kp C     &kp V     &kp B                 &kp LCTRL  &to 2  &kp RSHFT  &to 1      &kp K     &kp M     &kp COMMA   &kp DOT  &kp FSLH  &kp END
+                         &kp C_PP  &kp LGUI  &lt SYMBOL_LAYER TAB  &kp SPACE  &td0   &kp RET    &kp SPACE  &kp BSPC  &kp RALT  &bt BT_NXT
+            >;
 
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp RIGHT LEFT>;
-		};
-		GAME_LAYER {
-// ---------------------------------------------------------------------------------------------------------------------------------
-// |  ESC  |  1  |  2  |  3   |  4   |  5   |                                          |  6   |  7    |  8    |  9   |   0   |   \     |
-// |  LALT  |  Q  |  A  |  W   |  D   |  E   |                                          |  H   |  N    |  E    |  I   |   O   |   Home  |
-// | SHIFT |  Z  |  X  |  S   |  C   |  F   | Ctrl | NAV     |  | R SHIFT | R SHIFT |  K   |  M    |  ,    |  .   |   /   | End	   |
-//                     | C_PP  | GUI  | TAB  |  SPACE  |   L SHIFT  |  |   RET   |  SPACE  | BSPC  | RALT  | BT_NXT |
-			bindings = <
-	&td1   &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                                                &kp N6 &kp N7  &kp N8     &kp N9   &kp N0    &kp BSLH
-	&kp LALT   &kp Q &kp A &kp W &kp D &kp E                                                &kp H &kp N  &kp E     &kp I   &kp O &kp HOME
-	&kp LSHFT &kp Z &kp X &kp S &kp C &kp F &kp LCTRL &tog NAV_LAYER        &kp RSHFT &kp RSHFT &kp K &kp M  &kp COMMA &kp DOT &kp FSLH &kp END
-	                 &kp C_PP &kp LGUI &lt SYMBOL_LAYER TAB &kp SPACE &td0        &kp RET  &kp SPACE  &kp BSPC &kp RALT &bt BT_NXT
-			>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp RIGHT LEFT>;
+        };
 
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp RIGHT LEFT>;
-		};
-	};
+        SYMBOL_LAYER {
+            // ---------------------------------------------------------------------------------------------------------------------------------
+            // |  ESC  |  !  |  @  |  #   |  $   |  %   |                                          |  ^   |  &    |  *    |  -   |   ;   |   \  |
+            // |  TAB  |  `  |  ~  |  {   |  (   |  [   |                                          |  :   |  +    |  =    |  _   |   :   |   '  |
+            // | SHIFT |  <  |  >  |  }   |  )   |  ]   | Ctrl    | NAV     |  | R SHIFT | R SHIFT |  K   |  M    |  ,    |  .   |   ?   | "  |
+            //                     | C_PP  | GUI | TAB  |  SPACE  |   LSHIFT  |  |   RET   |  SPACE  | BSPC  | RALT  | BT_NXT |
+
+            bindings = <
+&td1       &kp EXCL   &kp AT     &kp HASH  &kp DLLR  &kp PERCENT                                                            &kp CARET  &kp AMPS  &kp ASTRK   &kp MINUS  &kp SEMI   &kp BSLH
+&kp TAB    &kp GRAVE  &kp TILDE  &kp LBRC  &kp LPAR  &kp LBKT                                                               &kp COLON  &kp PLUS  &kp EQUAL   &kp UNDER  &kp COLON  &kp SQT
+&kp LSHFT  &kp LT     &kp GT     &kp RBRC  &kp RPAR  &kp RBKT              &kp LCTRL  &tog NAV_LAYER  &kp RSHFT  &kp RSHFT  &kp K      &kp M     &kp COMMA   &kp DOT    &kp QMARK  &kp DQT
+                                 &kp C_PP  &kp LGUI  &lt SYMBOL_LAYER TAB  &kp SPACE  &td0            &kp RET    &kp SPACE  &kp BSPC   &kp RALT  &bt BT_NXT
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp RIGHT LEFT>;
+        };
+
+        NAV_LAYER {
+            // ---------------------------------------------------------------------------------------------------------------------------------
+            // |  ESC  |  1  |  2  |  3   |  4   |  5   |                                          |  6   |  7    |  8    |  9   |   0   |   \  |
+            // |  TAB  |  `  |  ~  |  {   |  (   |  [   |                                          |  :   |  LEFT |  UP   |RIGHT |   ;   | Home |
+            // | SHIFT |  <  |  >  |  }   |  )   |  ]   | L SHIFT | NAV     |  | L SHIFT | L SHIFT |  |   |  -    |  DOWN |  +   |   /   | End  |
+            //                     | C_PP  | GUI  | RET  |  SPACE  |   Ctrl  |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
+
+            bindings = <
+&td1       &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                                        &kp N6     &kp N7     &kp N8      &kp N9     &kp N0    &kp BSLH
+&kp TAB    &kp A   &kp S   &kp D     &kp F     &kp G                                                         &kp COLON  &kp LEFT   &kp UP      &kp RIGHT  &kp SEMI  &kp HOME
+&kp LSHFT  &kp Z   &kp X   &kp C     &kp V     &kp B                 &kp LCTRL  &to 2  &kp LSHFT  &kp LSHFT  &kp PIPE2  &kp MINUS  &kp DOWN    &kp PLUS   &kp FSLH  &kp END
+                           &kp C_PP  &kp LGUI  &lt SYMBOL_LAYER TAB  &kp SPACE  &td0   &kp RET    &kp SPACE  &kp BSPC   &kp RALT   &bt BT_NXT
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp RIGHT LEFT>;
+        };
+
+        GAME_LAYER {
+            // ---------------------------------------------------------------------------------------------------------------------------------
+            // |  ESC  |  1  |  2  |  3   |  4   |  5   |                                          |  6   |  7    |  8    |  9   |   0   |   \     |
+            // |  LALT  |  Q  |  A  |  W   |  D   |  E   |                                          |  H   |  N    |  E    |  I   |   O   |   Home  |
+            // | SHIFT |  Z  |  X  |  S   |  C   |  F   | Ctrl | NAV     |  | R SHIFT | R SHIFT |  K   |  M    |  ,    |  .   |   /   | End	   |
+            //                     | C_PP  | GUI  | TAB  |  SPACE  |   L SHIFT  |  |   RET   |  SPACE  | BSPC  | RALT  | BT_NXT |
+
+            bindings = <
+&td1       &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                                                 &kp N6    &kp N7    &kp N8      &kp N9   &kp N0    &kp BSLH
+&kp LALT   &kp Q   &kp A   &kp W     &kp D     &kp E                                                                  &kp H     &kp N     &kp E       &kp I    &kp O     &kp HOME
+&kp LSHFT  &kp Z   &kp X   &kp S     &kp C     &kp F                 &kp LCTRL  &tog NAV_LAYER  &kp RSHFT  &kp RSHFT  &kp K     &kp M     &kp COMMA   &kp DOT  &kp FSLH  &kp END
+                           &kp C_PP  &kp LGUI  &lt SYMBOL_LAYER TAB  &kp SPACE  &td0            &kp RET    &kp SPACE  &kp BSPC  &kp RALT  &bt BT_NXT
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp RIGHT LEFT>;
+        };
+    };
 };
